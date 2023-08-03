@@ -24,5 +24,13 @@ struct Injection {
     static func provideListViewController() -> ListViewController {
         return ListViewController(viewModel: provideListViewModel())
     }
+    
+    static func provideDetailViewModel(contact: ContactModel?) -> DetailViewModel {
+        return DetailViewModel(contact: contact)
+    }
+    
+    static func provideDetailViewController(contact: ContactModel?) -> DetailViewController {
+        DetailViewController(viewModel: provideDetailViewModel(contact: contact))
+    }
 }
 

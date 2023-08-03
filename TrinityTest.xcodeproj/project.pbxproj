@@ -30,6 +30,7 @@
 		278083F32A7B83760008B39D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278083F12A7B83760008B39D /* DetailViewController.swift */; };
 		278083F42A7B83760008B39D /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278083F22A7B83760008B39D /* DetailViewController.xib */; };
 		278083F62A7B847F0008B39D /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278083F52A7B847F0008B39D /* FormTextField.swift */; };
+		278083F82A7B877C0008B39D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278083F72A7B877C0008B39D /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		278083F12A7B83760008B39D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		278083F22A7B83760008B39D /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		278083F52A7B847F0008B39D /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		278083F72A7B877C0008B39D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			children = (
 				278083E82A7B7ECA0008B39D /* ListViewModel.swift */,
 				278083EF2A7B81140008B39D /* ContactViewModel.swift */,
+				278083F72A7B877C0008B39D /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278083F82A7B877C0008B39D /* DetailViewModel.swift in Sources */,
 				278083D72A7B74800008B39D /* ContactRepository.swift in Sources */,
 				278083E52A7B7B4C0008B39D /* ContactCollectionViewCell.swift in Sources */,
 				278083BC2A7B6DC80008B39D /* ViewController.swift in Sources */,

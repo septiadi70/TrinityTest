@@ -40,4 +40,12 @@ final class ListViewModel {
             }
             .store(in: &bags)
     }
+    
+    func saveContact(_ contact: ContactModel) {
+        if let i = contacts.firstIndex(where: { $0.id == contact.id }) {
+            contacts[i] = contact
+        } else {
+            contacts.append(contact)
+        }
+    }
 }

@@ -10,6 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="TrinityTest" customModuleProvider="target">
             <connections>
+                <outlet property="birthTextField" destination="CmJ-4E-juz" id="Ybq-wz-CDn"/>
+                <outlet property="emailTextField" destination="z3E-iH-o7j" id="pEU-fM-VGb"/>
+                <outlet property="firstNameTextField" destination="Yhy-40-205" id="cE2-84-yu1"/>
+                <outlet property="imageView" destination="kIx-V9-AW4" id="FGH-kq-Mix"/>
+                <outlet property="lastNameTextField" destination="Kvx-n0-qGs" id="YxC-50-4X5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

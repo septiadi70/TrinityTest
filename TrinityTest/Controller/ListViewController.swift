@@ -141,7 +141,15 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let viewController = DetailViewController()
+        let contact = viewModel.contacts[indexPath.item]
+        let viewController = Injection.provideDetailViewController(contact: contact)
+        viewController.delegate = self
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension ListViewController: DetailViewControllerDelegate {
+    func detailViewControllerDidSave(_ controller: DetailViewController, contact: ContactModel) {
+        viewModel.saveContact(contact)
     }
 }

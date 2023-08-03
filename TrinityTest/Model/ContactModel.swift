@@ -13,4 +13,20 @@ struct ContactModel: Decodable {
     var lastName: String
     var email: String?
     var dob: String?
+    
+    init(id: String, firstName: String, lastName: String, email: String? = nil, dob: String? = nil) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.dob = dob
+    }
+    
+    init() {
+        id = ""
+        firstName = ""
+        lastName = ""
+        email = nil
+        dob = nil
+    }
 }
