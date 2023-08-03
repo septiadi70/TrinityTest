@@ -27,6 +27,9 @@
 		278083EC2A7B7F640008B39D /* ListUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278083EB2A7B7F640008B39D /* ListUseCaseProtocol.swift */; };
 		278083EE2A7B7F700008B39D /* ListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278083ED2A7B7F700008B39D /* ListUseCase.swift */; };
 		278083F02A7B81150008B39D /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278083EF2A7B81140008B39D /* ContactViewModel.swift */; };
+		278083F32A7B83760008B39D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278083F12A7B83760008B39D /* DetailViewController.swift */; };
+		278083F42A7B83760008B39D /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278083F22A7B83760008B39D /* DetailViewController.xib */; };
+		278083F62A7B847F0008B39D /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278083F52A7B847F0008B39D /* FormTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		278083EB2A7B7F640008B39D /* ListUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUseCaseProtocol.swift; sourceTree = "<group>"; };
 		278083ED2A7B7F700008B39D /* ListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUseCase.swift; sourceTree = "<group>"; };
 		278083EF2A7B81140008B39D /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		278083F12A7B83760008B39D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		278083F22A7B83760008B39D /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		278083F52A7B847F0008B39D /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,8 @@
 			children = (
 				278083DE2A7B77A00008B39D /* ListViewController.swift */,
 				278083DF2A7B77A00008B39D /* ListViewController.xib */,
+				278083F12A7B83760008B39D /* DetailViewController.swift */,
+				278083F22A7B83760008B39D /* DetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 			children = (
 				278083E32A7B7B4C0008B39D /* ContactCollectionViewCell.swift */,
 				278083E42A7B7B4C0008B39D /* ContactCollectionViewCell.xib */,
+				278083F52A7B847F0008B39D /* FormTextField.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -249,6 +258,7 @@
 			files = (
 				278083C42A7B6DC90008B39D /* LaunchScreen.storyboard in Resources */,
 				278083C12A7B6DC90008B39D /* Assets.xcassets in Resources */,
+				278083F42A7B83760008B39D /* DetailViewController.xib in Resources */,
 				278083E12A7B77A00008B39D /* ListViewController.xib in Resources */,
 				278083BF2A7B6DC80008B39D /* Main.storyboard in Resources */,
 				278083D02A7B71150008B39D /* data.json in Resources */,
@@ -274,7 +284,9 @@
 				278083DC2A7B76490008B39D /* Injection.swift in Sources */,
 				278083EE2A7B7F700008B39D /* ListUseCase.swift in Sources */,
 				278083D32A7B71BD0008B39D /* ContactModel.swift in Sources */,
+				278083F62A7B847F0008B39D /* FormTextField.swift in Sources */,
 				278083F02A7B81150008B39D /* ContactViewModel.swift in Sources */,
+				278083F32A7B83760008B39D /* DetailViewController.swift in Sources */,
 				278083BA2A7B6DC80008B39D /* SceneDelegate.swift in Sources */,
 				278083E92A7B7ECA0008B39D /* ListViewModel.swift in Sources */,
 			);

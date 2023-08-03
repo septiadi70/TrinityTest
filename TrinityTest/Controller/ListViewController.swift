@@ -139,4 +139,9 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
         let width = (collectionView.frame.width - 30) / 2
         return CGSize(width: width, height: width)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = DetailViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
