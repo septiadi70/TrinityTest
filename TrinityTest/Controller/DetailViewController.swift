@@ -64,6 +64,11 @@ extension DetailViewController {
         
         imageView.layer.cornerRadius = imageView.frame.height / 2
         imageView.layer.masksToBounds = true
+        
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        emailTextField.delegate = self
+        birthTextField.delegate = self
     }
     
     private func refreshForm() {
@@ -100,5 +105,26 @@ extension DetailViewController {
         if let contack = viewModel.contact {
             delegate?.detailViewControllerDidSave(self, contact: contack)
         }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension DetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == firstNameTextField {
+            lastNameTextField.becomeFirstResponder()
+        }
+        if textField == lastNameTextField {
+            emailTextField.becomeFirstResponder()
+        }
+        if textField == emailTextField {
+            birthTextField.becomeFirstResponder()
+        }
+        if textField == birthTextField {
+            textField.resignFirstResponder()
+        }
+        
+        return true
     }
 }
