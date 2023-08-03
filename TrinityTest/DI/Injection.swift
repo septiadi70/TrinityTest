@@ -12,5 +12,9 @@ struct Injection {
         let fileService = FileService()
         return ContactRepository(fileService: fileService)
     }
+    
+    static func provideListViewController() -> ListViewController {
+        return ListViewController(nibName: "ListViewController", bundle: Bundle.main)
+    }
 }
 
