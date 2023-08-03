@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOr-v8-I0o">
-                        <rect key="frame" x="8" y="59.666666666666657" width="204" height="101"/>
+                        <rect key="frame" x="8" y="57.666666666666657" width="204" height="105"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQM-A7-tVs">
                                 <rect key="frame" x="70" y="8.0000000000000071" width="64" height="63.999999999999993"/>
@@ -27,7 +27,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDZ-AM-bdD">
-                                <rect key="frame" x="8" y="76" width="188" height="17"/>
+                                <rect key="frame" x="8" y="80" width="188" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                             <constraint firstAttribute="trailing" secondItem="lDZ-AM-bdD" secondAttribute="trailing" constant="8" id="TDF-Pa-EN6"/>
                             <constraint firstAttribute="bottom" secondItem="lDZ-AM-bdD" secondAttribute="bottom" constant="8" id="Tp6-op-Vix"/>
                             <constraint firstItem="uQM-A7-tVs" firstAttribute="top" secondItem="gOr-v8-I0o" secondAttribute="top" constant="8" id="jtB-nh-YSc"/>
-                            <constraint firstItem="lDZ-AM-bdD" firstAttribute="top" secondItem="uQM-A7-tVs" secondAttribute="bottom" constant="4" id="lem-J5-rB4"/>
+                            <constraint firstItem="lDZ-AM-bdD" firstAttribute="top" secondItem="uQM-A7-tVs" secondAttribute="bottom" constant="8" id="lem-J5-rB4"/>
                             <constraint firstItem="lDZ-AM-bdD" firstAttribute="leading" secondItem="gOr-v8-I0o" secondAttribute="leading" constant="8" id="nXP-L0-A00"/>
                             <constraint firstItem="uQM-A7-tVs" firstAttribute="centerX" secondItem="gOr-v8-I0o" secondAttribute="centerX" id="x1R-bJ-43j"/>
                         </constraints>

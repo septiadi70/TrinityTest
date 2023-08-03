@@ -8,13 +8,21 @@
 import Foundation
 
 struct Injection {
-    static func provideContactRepository() -> ContactRepositoryProtocol {
+    private static func provideContactRepository() -> ContactRepositoryProtocol {
         let fileService = FileService()
         return ContactRepository(fileService: fileService)
     }
     
+    private static func provideListUseCaseProtocol() -> ListUseCaseProtocol {
+        ListUseCase(repository: provideContactRepository())
+    }
+    
+    static func provideListViewModel() -> ListViewModel {
+        ListViewModel(useCase: provideListUseCaseProtocol())
+    }
+    
     static func provideListViewController() -> ListViewController {
-        return ListViewController(nibName: "ListViewController", bundle: Bundle.main)
+        return ListViewController(viewModel: provideListViewModel())
     }
 }
 

@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 class ListViewController: UIViewController {
+    var viewModel: ListViewModel
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -25,8 +27,28 @@ class ListViewController: UIViewController {
         return button
     }()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.tintColor = .gray
+        control.addTarget(self,
+                          action: #selector(refreshControlDidChanged(_:)),
+                          for: .valueChanged)
+        return control
+    }()
+    
+    var bags = Set<AnyCancellable>()
+    
     struct K {
         static let cellId = "CellIdentifier"
+    }
+    
+    init(viewModel: ListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: "ListViewController", bundle: Bundle.main)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -34,6 +56,8 @@ class ListViewController: UIViewController {
 
         configUI()
         configCollectionView()
+        viewModel.loadContacts()
+        configBinding()
     }
 
 }
@@ -52,10 +76,32 @@ extension ListViewController {
     private func configCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.alwaysBounceVertical = true
         collectionView.register(ContactCollectionViewCell.self,
                                 forCellWithReuseIdentifier: K.cellId)
         collectionView.register(UINib(nibName: "ContactCollectionViewCell", bundle: Bundle.main),
                                 forCellWithReuseIdentifier: K.cellId)
+        collectionView.refreshControl = refreshControl
+    }
+    
+    private func configBinding() {
+        viewModel
+            .$contacts
+            .receive(on: RunLoop.main)
+            .sink { [weak self] contacts in
+                self?.collectionView.reloadData()
+            }
+            .store(in: &bags)
+        
+        viewModel
+            .$isLoading
+            .receive(on: RunLoop.main)
+            .sink { [weak self] isLoading in
+                if !isLoading {
+                    self?.refreshControl.endRefreshing()
+                }
+            }
+            .store(in: &bags)
     }
 }
 
@@ -65,6 +111,10 @@ extension ListViewController {
     @objc func searchButtonTapped(_ sender: UIBarButtonItem) {}
     
     @objc func addButtonTapped(_ sender: UIBarButtonItem) {}
+    
+    @objc func refreshControlDidChanged(_ sender: UIRefreshControl) {
+        viewModel.loadContacts()
+    }
 }
 
 // MARK: - UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
@@ -75,16 +125,13 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        viewModel.contacts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let aCell = collectionView.dequeueReusableCell(withReuseIdentifier: K.cellId, for: indexPath)
         guard let cell = aCell as? ContactCollectionViewCell else { return aCell }
-        cell.imageView.backgroundColor = .orange
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 8.0
+        cell.config(ContactViewModel(contact: viewModel.contacts[indexPath.item]))
         return cell
     }
     
