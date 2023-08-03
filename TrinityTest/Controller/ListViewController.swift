@@ -110,7 +110,11 @@ extension ListViewController {
 extension ListViewController {
     @objc func searchButtonTapped(_ sender: UIBarButtonItem) {}
     
-    @objc func addButtonTapped(_ sender: UIBarButtonItem) {}
+    @objc func addButtonTapped(_ sender: UIBarButtonItem) {
+        let viewController = Injection.provideDetailViewController(contact: nil)
+        viewController.delegate = self
+        navigationController?.pushViewController(viewController, animated: true)
+    }
     
     @objc func refreshControlDidChanged(_ sender: UIRefreshControl) {
         viewModel.loadContacts()
@@ -150,6 +154,7 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 extension ListViewController: DetailViewControllerDelegate {
     func detailViewControllerDidSave(_ controller: DetailViewController, contact: ContactModel) {
+        navigationController?.popViewController(animated: true)
         viewModel.saveContact(contact)
     }
 }
